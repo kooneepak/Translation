@@ -1,0 +1,17 @@
+---
+:source:
+  :path: test
+  :file: test_Translation.c
+:successes:
+- :test: test_readFile
+  :line: 12
+  :message: ''
+:failures: []
+:ignores: []
+:counts:
+  :total: 1
+  :passed: 1
+  :failed: 0
+  :ignored: 0
+:stdout:
+- ' '
