@@ -3,6 +3,7 @@
 
 
 char *readChar();
+char *readLine();
 
 
 #endif //_TRANSLATION_H_ 
