@@ -30,7 +30,7 @@ char* GlobalOrderError;
 //=======External Functions This Runner Calls=====
 extern void setUp(void);
 extern void tearDown(void);
-extern void test_readFile(void);
+extern void test_should_pass_if_correct_character(void);
 
 
 //=======Test Reset Option=====
@@ -46,7 +46,7 @@ int main(void)
 {
   Unity.TestFile = "test_Translation.c";
   UnityBegin();
-  RUN_TEST(test_readFile, 12);
+  RUN_TEST(test_should_pass_if_correct_character, 14);
 
   return (UnityEnd());
 }

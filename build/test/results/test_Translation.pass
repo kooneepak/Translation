@@ -3,8 +3,8 @@
   :path: test
   :file: test_Translation.c
 :successes:
-- :test: test_readFile
-  :line: 12
+- :test: test_should_pass_if_correct_character
+  :line: 14
   :message: ''
 :failures: []
 :ignores: []
@@ -13,5 +13,4 @@
   :passed: 1
   :failed: 0
   :ignored: 0
-:stdout:
-- ' '
+:stdout: []

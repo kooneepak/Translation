@@ -9,11 +9,22 @@ void setUp(){}
 void tearDown(){}
 
 
-void test_readFile (){
-	
-	char *string;
-	string = readFile();
-	printf("%c",string);
-	//TEST_ASSERT_EQUAL_STRING("movlw",string);
 
+
+void test_should_pass_if_correct_character(){
+
+	char *string;
+	string = readChar();
+	
+	TEST_ASSERT_EQUAL('m', string[0]);
+	TEST_ASSERT_EQUAL('o', string[1]);
+	TEST_ASSERT_EQUAL('v', string[2]);
+	TEST_ASSERT_EQUAL('f', string[3]);
+	TEST_ASSERT_EQUAL('f', string[4]);
+	TEST_ASSERT_EQUAL(0, string[5]);
+	
+	TEST_ASSERT_EQUAL_STRING("movff", string);
 }
+
+
+

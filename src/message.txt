@@ -1,1 +1,1 @@
-movlw
+movff
