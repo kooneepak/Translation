@@ -11,12 +11,13 @@ char *readChar(){
 	FILE *myFile;
 	myFile = fopen("message.txt", "r+");
 	char *string = malloc(sizeof(char)*6);
-
-	string[0] = fgetc(myFile);	
-	string[1] = fgetc(myFile);
-	string[2] = fgetc(myFile);
-	string[3] = fgetc(myFile);
-	string[4] = fgetc(myFile);
+	
+//get one character from the message.txt file
+	string[0] = fgetc(myFile);	//m
+	string[1] = fgetc(myFile);  //o
+	string[2] = fgetc(myFile);	//v
+	string[3] = fgetc(myFile);	//f
+	string[4] = fgetc(myFile);	//f
 	string[5] = 0;
 
 	fclose(myFile);
@@ -32,8 +33,14 @@ char *readLine(){
 	
 	
 	ptr2Str = fgets(sizebuff , 6 , myFile );
+	
+	
 	if(ptr2Str != NULL)
 	return ptr2Str;
+	
+	fclose(myFile);
+	
+
 	
 	
 

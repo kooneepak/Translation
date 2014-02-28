@@ -16,4 +16,5 @@
   :passed: 2
   :failed: 0
   :ignored: 0
-:stdout: []
+:stdout:
+- movff

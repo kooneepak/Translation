@@ -29,7 +29,9 @@ void test_read_the_content_in_file_line_by_line(){
 	char *line;
 	line = readLine();
 	TEST_ASSERT_EQUAL_STRING("movff" , line);
-	//printf("%s", line);
+	printf("%s", line);
+	
+	
 	
 	
 

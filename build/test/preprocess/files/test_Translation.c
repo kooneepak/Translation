@@ -54,6 +54,10 @@ void test_read_the_content_in_file_line_by_line(){
 
  UnityAssertEqualString((const char*)("movff"), (const char*)(line), (((void *)0)), (_U_UINT)31);
 
+ printf("%s", line);
+
+
+
 
 
 
