@@ -3,11 +3,11 @@
   :path: test
   :file: test_Translation.c
 :successes:
-- :test: test_should_pass_if_correct_character
+- :test: test_readChar_should_pass_if_correct_character
   :line: 12
   :message: ''
-- :test: test_read_the_content_in_file_line_by_line
-  :line: 27
+- :test: test_readLine_should_read_first_line_from_the_file
+  :line: 28
   :message: ''
 :failures: []
 :ignores: []

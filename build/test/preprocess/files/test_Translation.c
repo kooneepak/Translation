@@ -14,7 +14,7 @@ void tearDown(){}
 
 
 
-void test_should_pass_if_correct_character(){
+void test_readChar_should_pass_if_correct_character(){
 
 
 
@@ -44,7 +44,9 @@ void test_should_pass_if_correct_character(){
 
 
 
-void test_read_the_content_in_file_line_by_line(){
+
+
+void test_readLine_should_read_first_line_from_the_file(){
 
 
 
@@ -52,13 +54,25 @@ void test_read_the_content_in_file_line_by_line(){
 
  line = readLine();
 
- UnityAssertEqualString((const char*)("movff"), (const char*)(line), (((void *)0)), (_U_UINT)31);
+
 
  printf("%s", line);
 
 
 
+ UnityAssertEqualNumber((_U_SINT)(('m')), (_U_SINT)((line[0])), (((void *)0)), (_U_UINT)35, UNITY_DISPLAY_STYLE_INT);
 
+ UnityAssertEqualNumber((_U_SINT)(('o')), (_U_SINT)((line[1])), (((void *)0)), (_U_UINT)36, UNITY_DISPLAY_STYLE_INT);
+
+ UnityAssertEqualNumber((_U_SINT)(('v')), (_U_SINT)((line[2])), (((void *)0)), (_U_UINT)37, UNITY_DISPLAY_STYLE_INT);
+
+ UnityAssertEqualNumber((_U_SINT)(('f')), (_U_SINT)((line[3])), (((void *)0)), (_U_UINT)38, UNITY_DISPLAY_STYLE_INT);
+
+ UnityAssertEqualNumber((_U_SINT)(('f')), (_U_SINT)((line[4])), (((void *)0)), (_U_UINT)39, UNITY_DISPLAY_STYLE_INT);
+
+
+
+ if ((('\n') != (line[5]))) {} else {UnityFail( (" Expected Not-Equal"), (_U_UINT)(_U_UINT)41);;};
 
 
 
