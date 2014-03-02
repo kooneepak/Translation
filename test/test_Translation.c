@@ -9,7 +9,7 @@ void setUp(){}
 void tearDown(){}
 
 
-void test_should_pass_if_correct_character(){
+void test_readChar_should_pass_if_correct_character(){
 
 	char *string;
 	string = readChar();
@@ -24,19 +24,23 @@ void test_should_pass_if_correct_character(){
 	TEST_ASSERT_EQUAL_STRING("movff", string);
 }
 
-void test_read_the_content_in_file_line_by_line(){
+
+void test_readLine_should_read_first_line_from_the_file(){
 
 	char *line;
 	line = readLine();
-	TEST_ASSERT_EQUAL_STRING("movff" , line);
+	
 	printf("%s", line);
 	
+	TEST_ASSERT_EQUAL('m', line[0]);	
+	TEST_ASSERT_EQUAL('o', line[1]);	
+	TEST_ASSERT_EQUAL('v', line[2]);
+	TEST_ASSERT_EQUAL('f', line[3]);
+	TEST_ASSERT_EQUAL('f', line[4]);
 	
-	
+	TEST_ASSERT_NOT_EQUAL('\n', line[5]);
+
 	
 
 
 }
-
-
-
