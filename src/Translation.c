@@ -2,15 +2,15 @@
 #include <stdlib.h>
 #include "Translation.h"
 #include <malloc.h>
-
+#include <string.h>
 
 
 
 char *readChar(){
 
 	FILE *myFile;
-	myFile = fopen("message.txt", "r+");
-	char *string = malloc(sizeof(char)*6);
+	myFile = fopen("message.txt", "r");
+	char *string = malloc(sizeof(char)*20);
 	
 //get one character from the message.txt file
 	string[0] = fgetc(myFile);	//m
@@ -26,25 +26,36 @@ char *readChar(){
 	
 char *readLine(){
 
+
 	FILE *myFile;
-	myFile = fopen("message.txt", "r+");
-	char sizebuff[128];
-	char *ptr2Str = malloc(sizeof(char)*6);
+	myFile = fopen("message.txt", "r");
+	char *line = malloc(sizeof(char)*128);
+	char c;
+	int i = 0;
 	
+	while(!feof(myFile) && (c = fgetc(myFile)) != '\n' ) {
+		line[i] = c;
+		i++;
+	}
 	
-	ptr2Str = fgets(sizebuff , 6 , myFile );
-	
-	
-	if(ptr2Str != NULL)
-	return ptr2Str;
+	line[i] = 0;
 	
 	fclose(myFile);
-	
+	return line;
 
 	
 	
-
 
 }
+
+
+
+
+
+
+
+
+
+
 
 	
