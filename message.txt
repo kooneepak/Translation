@@ -1,1 +1,4 @@
-movff
+movff 
+movlw 
+movwf 
+btg 

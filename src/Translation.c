@@ -24,11 +24,9 @@ char *readChar(){
 	return string;
 } 
 	
-char *readLine(){
+char *readLine(FILE *myFile){
 
-
-	FILE *myFile;
-	myFile = fopen("message.txt", "r");
+	
 	char *line = malloc(sizeof(char)*128);
 	char c;
 	int i = 0;
@@ -40,7 +38,7 @@ char *readLine(){
 	
 	line[i] = 0;
 	
-	fclose(myFile);
+	
 	return line;
 
 	
