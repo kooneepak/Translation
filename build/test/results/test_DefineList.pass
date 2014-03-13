@@ -1,0 +1,16 @@
+---
+:source:
+  :path: test
+  :file: test_DefineList.c
+:successes:
+- :test: test_addDefineElement
+  :line: 10
+  :message: ''
+:failures: []
+:ignores: []
+:counts:
+  :total: 1
+  :passed: 1
+  :failed: 0
+  :ignored: 0
+:stdout: []
