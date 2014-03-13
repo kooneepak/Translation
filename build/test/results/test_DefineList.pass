@@ -1,0 +1,28 @@
+---
+:source:
+  :path: test
+  :file: test_DefineList.c
+:successes:
+- :test: test_addDefineElement
+  :line: 10
+  :message: ''
+- :test: test_comparePreprocessor_should_return_1_if_is_define
+  :line: 21
+  :message: ''
+- :test: test_comparePreprocessor_should_return_0_if_is_not_define_else_return_1
+  :line: 32
+  :message: ''
+- :test: test_getDefineElement_should_return_a_define_element_id
+  :line: 50
+  :message: ''
+- :test: test_getDefineElement_should_return_a_define_element_value
+  :line: 63
+  :message: ''
+:failures: []
+:ignores: []
+:counts:
+  :total: 5
+  :passed: 5
+  :failed: 0
+  :ignored: 0
+:stdout: []

@@ -78,8 +78,8 @@ int main(void)
   RUN_TEST(test_addDefineElement, 10);
   RUN_TEST(test_comparePreprocessor_should_return_1_if_is_define, 21);
   RUN_TEST(test_comparePreprocessor_should_return_0_if_is_not_define_else_return_1, 32);
-  RUN_TEST(test_getDefineElement_should_return_a_define_element_id, 49);
-  RUN_TEST(test_getDefineElement_should_return_a_define_element_value, 61);
+  RUN_TEST(test_getDefineElement_should_return_a_define_element_id, 50);
+  RUN_TEST(test_getDefineElement_should_return_a_define_element_value, 63);
 
   return (UnityEnd());
 }

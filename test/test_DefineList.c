@@ -46,6 +46,7 @@ void test_comparePreprocessor_should_return_0_if_is_not_define_else_return_1() {
 
 }
 
+
 void test_getDefineElement_should_return_a_define_element_id() {
 
 	DefineElement *defineElement;
@@ -58,11 +59,12 @@ void test_getDefineElement_should_return_a_define_element_id() {
 
 }
 
+
 void test_getDefineElement_should_return_a_define_element_value() {
 
 	DefineElement *defineElement;
 	
-	defineElement = getDefineElement("#define MAX 10");
+	defineElement = getDefineElement("#define MAX 10");							  
 	TEST_ASSERT_NOT_NULL(defineElement);
 	TEST_ASSERT_EQUAL(10, defineElement->value);
 
