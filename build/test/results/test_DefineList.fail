@@ -9,17 +9,20 @@
 - :test: test_comparePreprocessor_should_return_1_if_is_define
   :line: 21
   :message: ''
-- :test: test_comparePreprocessor_should_return_0_if_is_not_define
+- :test: test_comparePreprocessor_should_return_0_if_is_not_define_else_return_1
   :line: 32
   :message: ''
 - :test: test_getDefineElement_should_return_a_define_element_id
   :line: 49
   :message: ''
-:failures: []
+:failures:
+- :test: test_getDefineElement_should_return_a_define_element_value
+  :line: 67
+  :message: Expected 10 Was 0
 :ignores: []
 :counts:
-  :total: 4
+  :total: 5
   :passed: 4
-  :failed: 0
+  :failed: 1
   :ignored: 0
 :stdout: []

@@ -25,6 +25,7 @@ DefineElement *getDefineElement(char* line) {
 	char *preprocessor = "#define";
 	DefineElement *defineElement=malloc(sizeof(DefineElement));
 	char *tempString=malloc(strlen(line));
+	int tempValue=0;
 
 	
 	while(preprocessor[i] != 0) {
@@ -34,7 +35,8 @@ DefineElement *getDefineElement(char* line) {
 	}
 	i++;
 	
-	if(comparePreprocessor(line) == 1) {	
+	if(comparePreprocessor(line) == 1) {
+		//ID
 		while(line[i] != ' ') {
 			if((line[i] >= 'A' && line[i] <= 'Z'))
 			{
@@ -47,8 +49,25 @@ DefineElement *getDefineElement(char* line) {
 				
 		}
 		tempString[i]=0;
-		defineElement->id = tempString;
+		defineElement->id = tempString;	
+		
+		//Value
+		while(line[i] != ' '){
+			if((line[i] >= '0') && (line[i] <='9'))
+			{
+				tempValue =tempValue*10+(line[i]-'0');
+				i++;
+			
+		}
+		else
+			printf("Error\n");
+		
 	}
-
+		
+		defineElement->value = tempValue;	
+		
 	return defineElement;
+		
+	
+	}
 }

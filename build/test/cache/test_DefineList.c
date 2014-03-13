@@ -57,7 +57,7 @@ void test_comparePreprocessor_should_return_1_if_is_define() {
 
 
 
-void test_comparePreprocessor_should_return_0_if_is_not_define() {
+void test_comparePreprocessor_should_return_0_if_is_not_define_else_return_1() {
 
 
 
@@ -108,6 +108,26 @@ void test_getDefineElement_should_return_a_define_element_id() {
  UnityAssertEqualNumber((_U_SINT)(('I')), (_U_SINT)((defineElement->id[1])), (((void *)0)), (_U_UINT)56, UNITY_DISPLAY_STYLE_INT);
 
  UnityAssertEqualNumber((_U_SINT)(('N')), (_U_SINT)((defineElement->id[2])), (((void *)0)), (_U_UINT)57, UNITY_DISPLAY_STYLE_INT);
+
+
+
+}
+
+
+
+void test_getDefineElement_should_return_a_define_element_value() {
+
+
+
+ DefineElement *defineElement;
+
+
+
+ defineElement = getDefineElement("#define MAX 10");
+
+ if ((((defineElement)) != ((void *)0))) {} else {UnityFail( (" Expected Non-NULL"), (_U_UINT)(_U_UINT)(_U_UINT)66);;};
+
+ UnityAssertEqualNumber((_U_SINT)((10)), (_U_SINT)((defineElement->value)), (((void *)0)), (_U_UINT)67, UNITY_DISPLAY_STYLE_INT);
 
 
 
