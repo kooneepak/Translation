@@ -18,4 +18,13 @@ void test_addDefineElement(){
 	addDefineElement(&defineList, &defineElement);
 }
 
+void test_comparePreprocessor_should_return_1_if_is_define() {
+	
+	char *string = "#define MAX 10";
 
+	int result = comparePreprocessor(string);
+	
+	TEST_ASSERT_EQUAL(1, result);
+	
+
+}

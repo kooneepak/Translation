@@ -9,5 +9,5 @@ typedef struct DefineElement_t{
 }DefineElement;
 
 void addDefineElement(LinkedList *defineList , void *defineElem); 
-
+int comparePreprocessor(char *line);
 #endif //__DEFINE_LIST_H__

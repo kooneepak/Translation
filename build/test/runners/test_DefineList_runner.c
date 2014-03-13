@@ -36,6 +36,7 @@ char* GlobalOrderError;
 extern void setUp(void);
 extern void tearDown(void);
 extern void test_addDefineElement(void);
+extern void test_comparePreprocessor_should_return_1_if_is_define(void);
 
 
 //=======Mock Management=====
@@ -72,6 +73,7 @@ int main(void)
   Unity.TestFile = "test_DefineList.c";
   UnityBegin();
   RUN_TEST(test_addDefineElement, 10);
+  RUN_TEST(test_comparePreprocessor_should_return_1_if_is_define, 21);
 
   return (UnityEnd());
 }

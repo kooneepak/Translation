@@ -6,11 +6,14 @@
 - :test: test_addDefineElement
   :line: 10
   :message: ''
+- :test: test_comparePreprocessor_should_return_1_if_is_define
+  :line: 21
+  :message: ''
 :failures: []
 :ignores: []
 :counts:
-  :total: 1
-  :passed: 1
+  :total: 2
+  :passed: 2
   :failed: 0
   :ignored: 0
 :stdout: []
