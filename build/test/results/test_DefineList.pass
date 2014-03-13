@@ -18,11 +18,14 @@
 - :test: test_getDefineElement_should_return_a_define_element_value
   :line: 63
   :message: ''
+- :test: test_add_DefineElement_into_linkedList
+  :line: 73
+  :message: ''
 :failures: []
 :ignores: []
 :counts:
-  :total: 5
-  :passed: 5
+  :total: 6
+  :passed: 6
   :failed: 0
   :ignored: 0
 :stdout: []

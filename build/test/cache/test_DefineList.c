@@ -136,3 +136,39 @@ void test_getDefineElement_should_return_a_define_element_value() {
 
 
 }
+
+
+
+void test_add_DefineElement_into_linkedList(){
+
+
+
+
+
+ LinkedList defineList = {};
+
+
+
+ DefineElement defineElement;
+
+ defineElement = *getDefineElement("#define MAX 10");
+
+
+
+ List_addLast_CMockExpect(81, &defineList, &defineElement);
+
+ addDefineElement(&defineList, &defineElement);
+
+
+
+
+
+
+
+
+
+
+
+
+
+}

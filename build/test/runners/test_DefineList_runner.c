@@ -40,6 +40,7 @@ extern void test_comparePreprocessor_should_return_1_if_is_define(void);
 extern void test_comparePreprocessor_should_return_0_if_is_not_define_else_return_1(void);
 extern void test_getDefineElement_should_return_a_define_element_id(void);
 extern void test_getDefineElement_should_return_a_define_element_value(void);
+extern void test_add_DefineElement_into_linkedList(void);
 
 
 //=======Mock Management=====
@@ -80,6 +81,7 @@ int main(void)
   RUN_TEST(test_comparePreprocessor_should_return_0_if_is_not_define_else_return_1, 32);
   RUN_TEST(test_getDefineElement_should_return_a_define_element_id, 50);
   RUN_TEST(test_getDefineElement_should_return_a_define_element_value, 63);
+  RUN_TEST(test_add_DefineElement_into_linkedList, 73);
 
   return (UnityEnd());
 }
