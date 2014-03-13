@@ -37,6 +37,7 @@ extern void setUp(void);
 extern void tearDown(void);
 extern void test_addDefineElement(void);
 extern void test_comparePreprocessor_should_return_1_if_is_define(void);
+extern void test_comparePreprocessor_should_return_0_if_is_not_define(void);
 
 
 //=======Mock Management=====
@@ -74,6 +75,7 @@ int main(void)
   UnityBegin();
   RUN_TEST(test_addDefineElement, 10);
   RUN_TEST(test_comparePreprocessor_should_return_1_if_is_define, 21);
+  RUN_TEST(test_comparePreprocessor_should_return_0_if_is_not_define, 32);
 
   return (UnityEnd());
 }

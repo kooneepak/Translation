@@ -28,3 +28,14 @@ void test_comparePreprocessor_should_return_1_if_is_define() {
 	
 
 }
+
+void test_comparePreprocessor_should_return_0_if_is_not_define() {
+	
+	char *string = "#def 10";
+
+	int result = comparePreprocessor(string);
+	
+	TEST_ASSERT_EQUAL(0, result);
+	
+
+}

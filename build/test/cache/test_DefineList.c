@@ -39,7 +39,7 @@ void test_comparePreprocessor_should_return_1_if_is_define() {
 
 
 
- char *string = "#define MAX 10";
+ char *string = "#define MA1 10";
 
 
 
@@ -48,6 +48,28 @@ void test_comparePreprocessor_should_return_1_if_is_define() {
 
 
  UnityAssertEqualNumber((_U_SINT)((1)), (_U_SINT)((result)), (((void *)0)), (_U_UINT)27, UNITY_DISPLAY_STYLE_INT);
+
+
+
+
+
+}
+
+
+
+void test_comparePreprocessor_should_return_0_if_is_not_define() {
+
+
+
+ char *string = "#def 10";
+
+
+
+ int result = comparePreprocessor(string);
+
+
+
+ UnityAssertEqualNumber((_U_SINT)((0)), (_U_SINT)((result)), (((void *)0)), (_U_UINT)38, UNITY_DISPLAY_STYLE_INT);
 
 
 

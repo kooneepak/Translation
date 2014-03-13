@@ -12,7 +12,7 @@ int comparePreprocessor(char *line){
 	char *preprocessor = "#define";
 	DefineElement defineElement;
 	
-	while(line[i] != ' ') {
+	while(preprocessor[i] != 0) {
 		if(line[i] != preprocessor[i])
 			return 0;
 		i++;
