@@ -12,11 +12,14 @@
 - :test: test_comparePreprocessor_should_return_0_if_is_not_define
   :line: 32
   :message: ''
+- :test: test_getDefineElement_should_return_a_define_element_id
+  :line: 49
+  :message: ''
 :failures: []
 :ignores: []
 :counts:
-  :total: 3
-  :passed: 3
+  :total: 4
+  :passed: 4
   :failed: 0
   :ignored: 0
 :stdout: []

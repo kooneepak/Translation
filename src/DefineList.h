@@ -8,6 +8,7 @@ typedef struct DefineElement_t{
 	int value;
 }DefineElement;
 
-void addDefineElement(LinkedList *defineList , void *defineElem); 
 int comparePreprocessor(char *line);
+void addDefineElement(LinkedList *defineList , void *defineElem); 
+DefineElement *getDefineElement(char* line);
 #endif //__DEFINE_LIST_H__
