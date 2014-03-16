@@ -25,8 +25,6 @@ char *readChar(){
 } 
 	
 char *readLine(FILE *myFile){
-
-	
 	char *line = malloc(sizeof(char)*128);
 	char c;
 	int i = 0;
@@ -38,12 +36,7 @@ char *readLine(FILE *myFile){
 	
 	line[i] = 0;
 	
-	
 	return line;
-
-	
-	
-
 }
 
 
