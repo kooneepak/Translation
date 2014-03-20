@@ -8,7 +8,7 @@ int length;
 } String;
 
 //Will be update when discuss with bing xuan group.
-typedef enum {INVALID_INDENTIFIER,UNKNOWN_OPERATOR} Error;
+typedef enum {INVALID_INDENTIFIER,UNKNOWN_OPERATOR,INVALID_ARGUMENT} Error;
 
 typedef struct{
 	char *rawString;

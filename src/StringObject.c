@@ -49,49 +49,6 @@ void stringRightTrim(String *string) {
 	string->length--;
 	}
 }
-
-/**
-* Get word from a line according to delimiters and update the status of the line (startIndex and length)
-*
-* Input:
-* line A line of string
-* delimiter Symbol to separate words
-*
-* Return:
-* word First word from a line
-*/
-String *getWordAndUpdate(String *line, char *delimiter) {
-	String *word = malloc(sizeof(String));
-	int i = 0; // Act as loop counter to avoid access beyond end of string
-
-	stringLeftTrim(line);
-
-	word->rawString = line->rawString;
-	word->startIndex = line->startIndex;
-	word->length = 0;
-
-	i = 0;
-	while(i < line->length) {
-	if(line->rawString[line->startIndex] != *delimiter && line->rawString[line->startIndex] != delimiter[0] && line->rawString[line->startIndex] != delimiter[1]) {
-	line->startIndex++;
-	word->length++;
-	i++;
-	} else { // line->rawString[line->startIndex] == *delimiter
-	if(word->length == 0) {
-	line->startIndex++;
-	word->startIndex++;
-	i++;
-	} else {
-	break;
-		}
-	}	
-}
-
-	line->length = line->length - i;
-
-	return word;
-}
-
 /*
 This function is to copy string from the middle of the string for specific length.
 input :
@@ -112,3 +69,37 @@ void stringCopy(char *source, char*destination, int startLocation, int length) {
 
 	destination[j] = '\0';
 }
+
+String *getWordAndUpdate(String *line, char *delimiter) {
+	String *word = malloc(sizeof(String));
+	int i; // Act as loop counter to avoid access beyond end of string
+	int j;
+
+	stringLeftTrim(line);
+	
+	word->rawString = line->rawString;
+	word->startIndex = line->startIndex;
+	word->length = 0;
+
+	i = 0;
+	while(i < line->length) {
+	for(j = 0; delimiter[j] != 0; j++) {
+	if(line->rawString[line->startIndex] == delimiter[j]) {
+	line->startIndex++;
+	i++;
+	goto finish;
+	}
+}
+	line->startIndex++;
+	word->length++;
+	i++;
+}
+
+	finish:
+
+	line->length = line->length - i;
+
+	return word;
+}
+
+
