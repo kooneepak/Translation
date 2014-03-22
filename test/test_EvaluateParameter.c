@@ -34,7 +34,7 @@ void test_evaluate0Parameter() {
 	free(argument);
 }
 
-void test_evaluate0Parameter_should_pass() {
+void test_evaluate0Parameter_should_pass_if_insert_semicolon() {
 	Error exception;
 	String string = {.rawString = ";",.startIndex = 0, .length = 1};
 	Argument *argument;
@@ -54,7 +54,7 @@ void test_evaluate0Parameter_should_pass() {
 	free(argument);
 }
 
-void test_evaluate0Parameter_should_fail() {
+void test_evaluate0Parameter_should_fail_if_insert_alphabet() {
 	Error exception;
 	String string = {.rawString = "abbc",.startIndex = 0, .length = 4};
 	Argument *argument;
