@@ -16,7 +16,6 @@ typedef struct{
 	int position;
 }ErrorMessage;
 
-extern String *subString;
 extern ErrorMessage *errorMessage;
 
 // Function Prototype

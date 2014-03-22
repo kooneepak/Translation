@@ -16,7 +16,7 @@ typedef struct {
 
 
 Argument *evaluate0Parameter(String *argument);
-// Argument evaluate1Parameter(String *argument);
+//Argument *evaluate1Parameter(String *argument);
 // Argument evaluate2Parameter(String *argument);
 
 
