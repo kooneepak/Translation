@@ -1,7 +1,8 @@
 #ifndef Token_H
 #define Token_H
 
+#include "StringObject.h"
 
-int shutingYard(char *expression);
+int evaluate(String *expression);
 
 #endif // Token_H

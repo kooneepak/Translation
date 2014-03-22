@@ -19,29 +19,29 @@ Argument *evaluate0Parameter(String *rawOperand){
 	return argument;
 }
 
-/*
+
 Argument *evaluate1Parameter(String *rawOperand){
 
-	subString = getWordAndUpdate(rawOperand, ",;");
+	String *subString ;
 	Argument *argument = malloc(sizeof(Argument));
-	char *buffer;
+	subString = getWordAndUpdate(rawOperand, ";"); // check one parameter
 	
 	if(subString->length == 0)
 		Throw(INVALID_ARGUMENT);
 	else
-		buffer = stringCopy(subString, 0, subString->length);
-		argument->operand1 = shuntingYard(buffer);
+		argument->operand1 = evaluate(subString);
 	
+	subString = getWordAndUpdate(rawOperand, ";");// than check again 
 	if(subString->length == 0 ){
 		argument->operand2 = -1;
 		argument->operand3 = -1;
-	} else
+	} else 
 		Throw(INVALID_ARGUMENT);
 	
 	return argument;
 	
 	}
-	
+/*	
 Argument *evaluate2Parameter(String *rawOperand){
 
 	subString = getWordAndUpdate(rawOperand, ",;");

@@ -5,8 +5,8 @@
 #include "mock_Token.h"
 #include <malloc.h>
 
-Opcode opcodeTable[] =  {{"clrwdt",evaluate0Parameter}};
-						 // {"movlw",evaluate1Parameter},
+Opcode opcodeTable[] =  {{"clrwdt",evaluate0Parameter},
+						 {"movlw",evaluate1Parameter}};
 						 // {"movff",evaluate0Parameter}};
 
 
@@ -69,28 +69,28 @@ void test_evaluate0Parameter_should_fail_if_insert_alphabet() {
 	free(argument);
 }
 
-/*
-void test_evaluate1Parameter() {
 
+
+
+void test_evaluate1parameter_should_pass_if_one_parameter() {
 	Error exception;
-	String string = {.rawString = "0xfc",.startIndex = 0, .length = 4};
 	Argument *argument;
+	String parameter = {.rawString = "movlw 0xfe" , .startIndex = 6, .length = 4};
+	String subString = {.rawString = "movlw 0xfe" , .startIndex = 6, .length = 4};
 	
-	
+	evaluate_ExpectAndReturn(&subString, 0xfe);
 	
 	Try {
-		argument = evaluate1Parameter(&string);
-	} Catch(exception) {
-		printf("Invalid Argument");
+	argument = evaluate1Parameter(&parameter); 
+	 }Catch(exception) {
+		TEST_FAIL_MESSAGE("Should not throw error");
 	}
-	TEST_ASSERT_EQUAL(4, argument->operand1);
+	
+	TEST_ASSERT_EQUAL(0xfe, argument->operand1);
 	TEST_ASSERT_EQUAL(-1, argument->operand2);
 	TEST_ASSERT_EQUAL(-1, argument->operand3);
-	TEST_ASSERT_EQUAL(0, string.length);
-	
-	TEST_ASSERT_NOT_NULL(argument);
-	
+
+	TEST_ASSERT_NOT_NULL(argument);	
 	free(argument);
 	
 }
-*/

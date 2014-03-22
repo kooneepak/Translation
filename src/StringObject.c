@@ -16,13 +16,13 @@ String *stringCreate(char *expression) {
 	String *newString = malloc (sizeof(String));
 	char *newRawString = malloc (length+1);
 
-	stringCopy(expression, newRawString, 0, length);
+	newRawString = expression;
 	newString->rawString = newRawString;
 	newString->startIndex = 0;
 	newString->length = strlen(newString->rawString);
 
 	return newString;
-	}
+}
 
 /**
 * Trim out the left space/tab of string
@@ -59,14 +59,17 @@ output:
 return:
 none
 */
-void stringCopy(char *source, char*destination, int startLocation, int length) {
-	int i, j = 0;
+char *stringCopy(String *source, int relStartIndex, int length) {
+	char *destination = malloc(sizeof(char)*(length+1));
+	int j = relStartIndex + source->startIndex;
+	int i;
 
-	for (i = 0; i < length; i++, j++) {
-	destination[j]= source[startLocation+i];
-	}
+	for(i = 0; i < length; i++, j++)
+		destination[i] = source->rawString[j];
 
-	destination[j] = '\0';
+	destination[i] = 0;
+
+	return destination;
 }
 
 String *getWordAndUpdate(String *line, char *delimiter) {
