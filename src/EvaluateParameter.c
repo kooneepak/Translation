@@ -24,14 +24,14 @@ Argument *evaluate1Parameter(String *rawOperand){
 
 	String *subString ;
 	Argument *argument = malloc(sizeof(Argument));
-	subString = getWordAndUpdate(rawOperand, ";"); // check one parameter
+	subString = getWordAndUpdate(rawOperand, ",;"); // check one parameter
 	
 	if(subString->length == 0)
 		Throw(INVALID_ARGUMENT);
 	else
 		argument->operand1 = evaluate(subString);
 	
-	subString = getWordAndUpdate(rawOperand, ";");// than check again 
+	subString = getWordAndUpdate(rawOperand, ",;");// than check again 
 	if(subString->length == 0 ){
 		argument->operand2 = -1;
 		argument->operand3 = -1;
