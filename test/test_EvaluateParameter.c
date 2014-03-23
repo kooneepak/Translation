@@ -6,8 +6,8 @@
 #include <malloc.h>
 
 Opcode opcodeTable[] =  {{"clrwdt",evaluate0Parameter},
-						 {"movlw",evaluate1Parameter}};
-						 // {"movff",evaluate0Parameter}};
+						 {"movlw",evaluate1Parameter},
+						 {"movff",evaluate0Parameter}};
 
 
 void setUp(void){}
@@ -88,6 +88,33 @@ void test_evaluate1parameter_should_pass_if_one_parameter() {
 	
 	TEST_ASSERT_EQUAL(0xfe, argument->operand1);
 	TEST_ASSERT_EQUAL(-1, argument->operand2);
+	TEST_ASSERT_EQUAL(-1, argument->operand3);
+
+	TEST_ASSERT_NOT_NULL(argument);	
+	free(argument);
+	
+}
+
+
+void test_evaluate2parameter_should_pass_if_two_parameter() {
+	Error exception;
+	Argument *argument;
+	String parameter = {.rawString = "movff 0xfe,0xff" , .startIndex = 6, .length = 9};
+	String subString1 = {.rawString = "movff 0xfe,0xff" , .startIndex = 6, .length = 4};
+	String subString2= {.rawString = "movff 0xfe,0xff" , .startIndex = 11, .length = 4};
+	
+	evaluate_ExpectAndReturn(&subString1, 0xfe);
+	//printf("sub1: %x\n", subString1);
+	evaluate_ExpectAndReturn(&subString2, 0xff);
+	//printf("sub2: %x\n", subString2);
+	Try {
+	argument = evaluate2Parameter(&parameter); 
+	 }Catch(exception) {
+		TEST_FAIL_MESSAGE("Should not throw error");
+	}
+	
+	TEST_ASSERT_EQUAL(0xfe, argument->operand1);
+	TEST_ASSERT_EQUAL(0xff, argument->operand2);
 	TEST_ASSERT_EQUAL(-1, argument->operand3);
 
 	TEST_ASSERT_NOT_NULL(argument);	

@@ -15,9 +15,9 @@ typedef struct {
 } Opcode;
 
 
-Argument *evaluate0Parameter(String *argument);
-Argument *evaluate1Parameter(String *argument);
-// Argument evaluate2Parameter(String *argument);
+Argument *evaluate0Parameter(String *rawOperand);
+Argument *evaluate1Parameter(String *rawOperand);
+Argument *evaluate2Parameter(String *rawOperand);
 
 
 

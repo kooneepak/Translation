@@ -41,27 +41,40 @@ Argument *evaluate1Parameter(String *rawOperand){
 	return argument;
 	
 	}
-/*	
+
 Argument *evaluate2Parameter(String *rawOperand){
 
-	subString = getWordAndUpdate(rawOperand, ",;");
+	String *subString ;
 	Argument *argument = malloc(sizeof(Argument));
-	char *buffer;
+	subString = getWordAndUpdate(rawOperand, ",;");
 	
 	if(subString->length == 0)
 		Throw(INVALID_ARGUMENT);
 	else
-		buffer = stringCopy(subString, 0, subString->length);
-		argument->operand1 = shuntingYard(buffer);
-		argument->operand2 = shuntingYard(buffer);
+		argument->operand1 = evaluate(subString);
 	
+	stringLeftTrim(rawOperand);
+	subString = getWordAndUpdate(rawOperand, ",;");
+	//printf("csub: %x\n", subString);
+	if(subString->length == 0)
+		Throw(INVALID_ARGUMENT);
+	else
+		argument->operand2 = evaluate(subString);
+	
+	stringLeftTrim(rawOperand);
+	subString = getWordAndUpdate(rawOperand, ",;");
+	//printf("csub: %x\n", subString);
 	if(subString->length == 0 ){
 		argument->operand3 = -1;
-	} else
+	} else 
 		Throw(INVALID_ARGUMENT);
 	
 	return argument;
 	
-	}
-*/
+}
+
+
+
+
+
 	
