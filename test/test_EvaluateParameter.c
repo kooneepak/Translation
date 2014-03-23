@@ -7,7 +7,7 @@
 
 Opcode opcodeTable[] =  {{"clrwdt",evaluate0Parameter},
 						 {"movlw",evaluate1Parameter},
-						 {"movff",evaluate0Parameter}};
+						 {"movff",evaluate2Parameter}};
 
 
 void setUp(void){}
