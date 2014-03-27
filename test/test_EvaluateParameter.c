@@ -13,6 +13,7 @@ Opcode opcodeTable[] =  {{"clrwdt",evaluate0Parameter},
 void setUp(void){}
 void tearDown(void){}
 
+// Evaluate0parameter 
 void test_evaluate0Parameter() {
 	
 	Error exception;
@@ -70,7 +71,8 @@ void test_evaluate0Parameter_should_fail_if_insert_alphabet() {
 }
 
 
-
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Evaluate1parameter
 
 void test_evaluate1parameter_should_pass_if_one_parameter() {
 	Error exception;
@@ -91,6 +93,46 @@ void test_evaluate1parameter_should_pass_if_one_parameter() {
 	TEST_ASSERT_EQUAL(-1, argument->operand3);
 
 	TEST_ASSERT_NOT_NULL(argument);	
+	free(argument);
+	
+}
+
+void test_evaluate1parameter_should_pass_if_pass_in_extra_spacing_in_one_parameter() {
+	Error exception;
+	Argument *argument;
+	String parameter = {.rawString = "movlw     0xfe" , .startIndex = 10, .length = 4};
+	String subString = {.rawString = "movlw     0xfe" , .startIndex = 10, .length = 4};
+	
+	evaluate_ExpectAndReturn(&subString, 0xfe);
+	
+	Try {
+	argument = evaluate1Parameter(&parameter); 
+	 }Catch(exception) {
+		TEST_FAIL_MESSAGE("Should not throw error");
+	}
+	
+	TEST_ASSERT_EQUAL(0xfe, argument->operand1);
+	TEST_ASSERT_EQUAL(-1, argument->operand2);
+	TEST_ASSERT_EQUAL(-1, argument->operand3);
+
+	TEST_ASSERT_NOT_NULL(argument);	
+	free(argument);
+	
+}
+
+void test_evaluate1parameter_should_throw_an_exception_when_there_is_no_parameter() {
+	Error exception;
+	Argument *argument;
+	String parameter = {.rawString = "movlw" , .startIndex = 5, .length = 0};
+	String subString = {.rawString = "movlw" , .startIndex = 5, .length = 0};
+
+	Try {
+		argument = evaluate1Parameter(&parameter);
+		TEST_FAIL_MESSAGE("Should throw an error");
+	} Catch(exception) {
+		printf("Invalid Argument");
+	}
+
 	free(argument);
 	
 }
@@ -129,6 +171,8 @@ void test_evaluate1parameter_should_fail_if_pass_in_wrong_parameter_semicolon() 
 	
 }
 
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Evaluate2parameter 
 
 void test_evaluate2parameter_should_pass_if_two_parameter() {
 	Error exception;
