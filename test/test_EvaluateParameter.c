@@ -4,11 +4,7 @@
 #include "StringObject.h"
 #include "mock_Token.h"
 #include <malloc.h>
-
-Opcode opcodeTable[] =  {{"clrwdt",evaluate0Parameter},
-						 {"movlw",evaluate1Parameter},
-						 {"movff",evaluate2Parameter}};
-
+#include "Error.h"
 
 void setUp(void){}
 void tearDown(void){}

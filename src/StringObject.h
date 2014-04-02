@@ -7,19 +7,9 @@ int startIndex;
 int length;
 } String;
 
-//Will be update when discuss with bing xuan group.
-typedef enum {INVALID_INDENTIFIER,UNKNOWN_OPERATOR,INVALID_ARGUMENT} Error;
-
-typedef struct{
-	char *rawString;
-	char *message;
-	int position;
-}ErrorMessage;
-
-extern ErrorMessage *errorMessage;
-
 // Function Prototype
 String *stringCreate(char *expression) ;
+int stringCompare(char *expectString, String *stringObject);
 char *stringCopy(String *source, int relStartIndex, int length);
 void stringLeftTrim(String* string);
 void stringRightTrim(String *string);

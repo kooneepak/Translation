@@ -3,7 +3,10 @@
 #include "CException.h"
 #include "StringObject.h"
 #include "Token.h"
+#include "Error.h"
 #include <malloc.h>
+
+extern Error exception;
 
 Argument *evaluate0Parameter(String *rawOperand){
 	String *subString = getWordAndUpdate(rawOperand, ";");
