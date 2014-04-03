@@ -11,6 +11,7 @@ typedef struct {
 
 
 int isLabel(String *word);
+int isValidSymbol(char character);
 
 
 #endif // Interpret_H

@@ -47,21 +47,22 @@ InstructionTable instructionTable[] =  {{.mnemonic = "clrwdt",.opcode = CLRWDT ,
 
 
 int isLabel(String *word){
-	int i;
+	int i,j;
 	for(i =0 ; i<41 ; i++) {
 		if(stringCompare(instructionTable[i].mnemonic, word)) {
 			return 0;
 		}
 	}
-	if(word->rawString[0] >= 'a' && word->rawString[0] <= 'z') 
-		return 1;	
-	else
-		Throw(INVALID_LABEL);
+	for(j=0 ; j < word->length ; j++){
+		if((word->rawString[j] >= 'a' && word->rawString[j] <= 'z') || isValidSymbol(word->rawString[j]))
+			;
+		else
+			Throw(INVALID_LABEL);
+	}
+	return 1;
 }						 
 
 int isValidSymbol(char character){
-	
-	int i;
 	if(character == '.' || character == '?' || character == '@' || character == '#' || character == '_' ) 
 		return 1;	
 	else
