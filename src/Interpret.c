@@ -53,10 +53,19 @@ int isLabel(String *word){
 			return 0;
 		}
 	}
-	if(word->rawString[0] >= 'a' && word->rawString[0] <= 'z' ) 
+	if(word->rawString[0] >= 'a' && word->rawString[0] <= 'z') 
 		return 1;	
 	else
 		Throw(INVALID_LABEL);
 }						 
+
+int isValidSymbol(char character){
+	
+	int i;
+	if(character == '.' || character == '?' || character == '@' || character == '#' || character == '_' ) 
+		return 1;	
+	else
+		return 0;
+}
 
 

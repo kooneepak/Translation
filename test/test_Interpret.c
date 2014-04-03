@@ -46,7 +46,7 @@ void test_isLabel_should_throw_an_exception_if_the_first_character_of_the_word_i
 }
 
 void test_isLabel_should_throw_an_exception_if_the_first_character_of_the_word_is_symbol() {
-	String word = {.rawString = "!!!abc", .startIndex = 0, .length = 5}; 
+	String word = {.rawString = "!!!abc", .startIndex = 0, .length = 6}; 
 	int result;
 	
 	Try{
@@ -57,4 +57,38 @@ void test_isLabel_should_throw_an_exception_if_the_first_character_of_the_word_i
 	}
 
 }
+
+void test_isLabel_should_return_1_if_the_word_is_an_symbol() {
+	int result;
+	
+	result = isValidSymbol('?');
+	result = isValidSymbol('.');
+	result = isValidSymbol('@');
+	result = isValidSymbol('#');
+	result = isValidSymbol('_');
+	
+	TEST_ASSERT_EQUAL(1, result);
+	TEST_ASSERT_EQUAL(1, result);
+	TEST_ASSERT_EQUAL(1, result);
+	TEST_ASSERT_EQUAL(1, result);
+	TEST_ASSERT_EQUAL(1, result);
+}
+
+void test_isLabel_should_return_0_if_the_word_is_not_symbol() {
+	int result;
+	
+	result = isValidSymbol('$');
+	result = isValidSymbol('%');
+	result = isValidSymbol('^');
+	result = isValidSymbol('&');
+	result = isValidSymbol('*');
+	
+	TEST_ASSERT_EQUAL(0, result);
+	TEST_ASSERT_EQUAL(0, result);
+	TEST_ASSERT_EQUAL(0, result);
+	TEST_ASSERT_EQUAL(0, result);
+	TEST_ASSERT_EQUAL(0, result);
+}
+
+
 
