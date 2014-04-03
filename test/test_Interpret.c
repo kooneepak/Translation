@@ -160,7 +160,7 @@ void test_isLabel_should_throw_an_exception_if_the_word_is_invalid_label_movff()
 	Try{
 		result = isLabel(&word);
 		TEST_FAIL_MESSAGE("should throw an error");
-	} Catch(e) {
+	} Catch(e) { 
 		TEST_ASSERT_EQUAL(INVALID_LABEL, e);
 	}
 
