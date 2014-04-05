@@ -166,6 +166,28 @@ void test_isLabel_should_throw_an_exception_if_the_word_is_invalid_label_movff()
 
 }
 
+void test_isLabel_should_return_1_if_the_word_is_valid_label_for_valid_instruction() {
+	String word = {.rawString = "movff@_?", .startIndex = 0, .length = 8};
+	int result;
+	
+	result = isLabel(&word);
+	
+	TEST_ASSERT_EQUAL(1, result);
+
+}
+
+void test_isLabel_should_throw_an_exception_if_the_word_is_invalid_symbol_for_valid_label() {
+	String word = {.rawString = "movff@^&", .startIndex = 0, .length = 8};
+	int result;
+	
+	Try{
+		result = isLabel(&word);
+		TEST_FAIL_MESSAGE("should throw an error");
+	} Catch(e) { 
+		TEST_ASSERT_EQUAL(INVALID_LABEL, e);
+	}
+
+}
 
 
 
