@@ -46,12 +46,10 @@ typedef enum{
 			}Opcode;
 
 typedef  struct {
-
 	int operand1;
 	int operand2;
 	int operand3;
 } Argument;
-
 
 Argument *evaluate0Parameter(String *rawOperand);
 Argument *evaluate1Parameter(String *rawOperand);

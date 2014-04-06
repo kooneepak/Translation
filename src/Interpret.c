@@ -1,5 +1,6 @@
 #include "Interpret.h"
 #include "EvaluateParameter.h"
+#include "StringObject.h"
 #include "Error.h"
 #include "CException.h"
 
@@ -46,27 +47,6 @@ InstructionTable instructionTable[] =  {{.mnemonic = "clrwdt",.opcode = CLRWDT ,
 						 {.mnemonic = "lfsr", .opcode = LFSR, .evaluate = evaluate2Parameter}};
 
 
-int isLabel(String *word){
-	int i,j;
-	for(i =0 ; i<41 ; i++) {
-		if(stringCompare(instructionTable[i].mnemonic, word)) {
-			return 0;
-		}
-	}
-	for(j=0 ; j < word->length ; j++){
-		if((word->rawString[j] >= 'a' && word->rawString[j] <= 'z') || isValidSymbol(word->rawString[j]))
-			;
-		else
-			Throw(INVALID_LABEL);
-	}
-	return 1;
-}						 
 
-int isValidSymbol(char character){
-	if(character == '.' || character == '?' || character == '@' || character == '#' || character == '_' ) 
-		return 1;	
-	else
-		return 0;
-}
 
 

@@ -9,9 +9,6 @@ typedef struct {
 	Argument *(*evaluate)(String*);
 }InstructionTable;
 
-
-int isLabel(String *word);
-int isValidSymbol(char character);
-
+extern InstructionTable instructionTable[];
 
 #endif // Interpret_H

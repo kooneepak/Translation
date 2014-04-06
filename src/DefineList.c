@@ -1,78 +1,69 @@
 #include <stdio.h>
 #include "DefineList.h"
 #include "LinkedList.h"
+#include "StringObject.h"
 #include <malloc.h>
+#include "Error.h"
+#include "CException.h"
 #include <string.h>
 
-void addDefineElement(LinkedList *defineList , void *defineElem){
-	List_addLast(defineList, defineElem);
-}
-
-int comparePreprocessor(char *line) {
-	int i =0;
-	char *preprocessor = "#define";
-	DefineElement defineElement;
+int isDefineAndStore(LinkedList *defineList, String *line) {
+	int i = 0;
+	String *subString;
 	
-	while(preprocessor[i] != 0) {
-		if(line[i] != preprocessor[i])
-			return 0;
-		i++;
-	}return 1;
-}
-
-DefineElement *getDefineElement(char* line) {
-	int i =0,j=0;
-	char *preprocessor = "#define";
-	DefineElement *defineElement=malloc(sizeof(DefineElement));
-	char *tempString=malloc(strlen(line));
-	int tempValue=0;
-
-	while(preprocessor[i] != 0) {
-		if(line[i] != preprocessor[i])
-			printf("Error\n");
-		i++;
+	subString = getWordAndUpdate(line, " \t");
+	if(isPreprocessor(subString->rawString[subString->startIndex])) {
+		if(stringCompare("#define", subString)) {
+			subString = getWordAndUpdate(line, "\0");
+			storeDefineElement(defineList, subString);
+		} else {
+			Throw(INVALID_PREPROCESSOR);
+		}
+	} else {
+		return 0;
 	}
-	i++;
-	
-	if(comparePreprocessor(line) == 1) {
-		//ID
-		while(line[i] != ' ') {
-			if((line[i] >= 'A' && line[i] <= 'Z'))
-			{
-				tempString[j] = line[i];
-				i++;
-				j++;
-			}
-			else
-				printf("Error\n");
-				
-		}
+		free(subString);
+}
 
-		defineElement->id = tempString;	
+int isPreprocessor(char hast) {
+	if(hast == '#')
+		return 1;
+	else
+		return 0;
+}
+
+void storeDefineElement(LinkedList *defineList, String *idAndValue) {
 	
-		i++;
-		
-		//Value
-		while(line[i] != ' ' && line[i] != 0){
-			if((line[i] >= '0') && (line[i] <= '9'))
-			{
-				tempValue = (tempValue*10) + (line[i]-'0');
-				i++;			
-			}
-			else
-				printf("Error\n");
-		
+	String id, value;
+	String *subString;
+	int j;
 	
-		}
-		
-		defineElement->value = tempValue;	
-		
+	subString = getWordAndUpdate(idAndValue, " ");
+	if(isdigit(subString->rawString[subString->startIndex]))
+		Throw(INVALID_IDENTIFIER);
+	
+	for(j = 1; j < subString->length; j++) {
+		if(isdigit(subString->rawString[subString->startIndex + j]) == 0 && isalpha(subString->rawString[subString->startIndex + j]) == 0)
+			Throw(INVALID_IDENTIFIER);
+		else
+			id = *subString;
+	}
+	
+	subString = getWordAndUpdate(idAndValue, "\0");
+	value = *subString;
+	
+	DefineElement *defineElement = createDefineElement(&id, &value);
+	
+	List_addLast(defineList, defineElement);
+}
+
+DefineElement *createDefineElement(String *id, String *value) {
+	DefineElement *defineElement = malloc(sizeof(DefineElement));
+	
+	defineElement->id = *id;
+	defineElement->value = *value;
+	
 	return defineElement;
-			
-	
-	}
 }
-
-
 
 
